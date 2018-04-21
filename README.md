@@ -7,3 +7,5 @@ https://fea01fa8-c228-41f0-9e59-e7763dfb2820-bluemix.cloudant.com/user_answear/8
 
 ##memo
 Spring Boot framework will automatically serialize the entity object with the response from the Cloudant database as well as convert it to JSON when sending the request back for the REST request.
+
+https://www.niandc.co.jp/sol/tech/date20180209_1610.php
