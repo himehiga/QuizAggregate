@@ -1,0 +1,16 @@
+# Spring properties
+spring:
+  application:
+     name: quiz-aggregate
+
+# Server configuration
+server:
+  context-path:
+  port: 8080
+
+# Cloudant Confiugration
+cloudant:
+  db: user_answear
+  username: fea01fa8-c228-41f0-9e59-e7763dfb2820-bluemix
+  password: 7863d0e58f926dab130786593fd97eb7826681e2c7a73adaacafb03ad46a8509
+  url: https://fea01fa8-c228-41f0-9e59-e7763dfb2820-bluemix.cloudant.com

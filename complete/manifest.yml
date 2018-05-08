@@ -1,0 +1,6 @@
+---
+applications:
+- name: quiz-aggregate
+  memory: 128M
+  instances: 1
+  path: build/libs/quiz-aggregate-0.1.0.jar

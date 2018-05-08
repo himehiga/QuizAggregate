@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Answer</title>
+</head>
+<body>
+    <p th:text="${userAccount}">test</p>
+    <form action="/answer/edit" method="post" >
+        <input type="submit" id="firstAnswer" value="A" name="firstAnswer" />
+        <input type="submit" id="secondAnswer" value="B" name="secondAnswer" />
+        <input type="submit" id="thirdAnswer" value="C" name="thirdAnswer" />
+        <input type="submit" id="forthAnswer" value="D" name="forthAnswer" />
+
+        <input type="submit" name="sendAnswer" value="次へ" />
+    </form>
+
+</body>
+</html>
