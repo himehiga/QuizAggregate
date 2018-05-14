@@ -30,3 +30,6 @@ pram変数を利用
 ## サービス層
 サービス層：コントローラとモデルの両者から自由に呼び出せるもの
 Spring Frameworkでは、このサービス部分をBeanとして登録し、アノテーションを記述して利用する仕組み
+
+## Autowiredについて
+Spring Bootで@Controller @Service @Repository@Componentといったアノテーションを付与したクラスはBeanとしてSpringのDIコンテナに登録され、利用するクラス側で@Autowiredアノテーションを当該クラスに付与することで、Springが生成したオブジェクトを利用できます。
