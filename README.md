@@ -11,3 +11,22 @@ Spring Boot framework will automatically serialize the entity object with the re
 https://www.niandc.co.jp/sol/tech/date20180209_1610.php
 
 https://github.com/icha024/cloudant-spring-boot-starter
+
+# Thymeleaf
+## 変数式：${hoge}
+## ユーティリティオブジェクト
+直接クラスメソッドが呼ばるようになる<br>
+```
+${#dates.format(new java.util.Data(), 'dd/MM/yyyy')}<br>
+```
+Dateクラスのformatメソッドで、日付整形
+
+# パラメータへのアクセス
+pram変数を利用
+
+## メッセージ式 #{値の指定}
+プロパティファイルから値を読み出す
+
+## サービス層
+サービス層：コントローラとモデルの両者から自由に呼び出せるもの
+Spring Frameworkでは、このサービス部分をBeanとして登録し、アノテーションを記述して利用する仕組み
