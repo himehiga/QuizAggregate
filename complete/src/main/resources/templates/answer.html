@@ -6,14 +6,13 @@
 </head>
 <body>
     <p th:text="${userAccount}">test</p>
-    <form action="/answer/edit" method="post" >
-        <input type="submit" id="firstAnswer" value="A" name="firstAnswer" />
-        <input type="submit" id="secondAnswer" value="B" name="secondAnswer" />
+    <form action="/answer/edit" method="post" th:object="${formModel}">
+        <input type="submit" id="firstAnswer" value="A" name="answerA" />
+        <input type="submit" id="secondAnswer" value="B" name="answerB" />
         <input type="submit" id="thirdAnswer" value="C" name="thirdAnswer" />
         <input type="submit" id="forthAnswer" value="D" name="forthAnswer" />
 
         <input type="submit" name="sendAnswer" value="次へ" />
     </form>
-
 </body>
 </html>

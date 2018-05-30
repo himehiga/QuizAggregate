@@ -32,6 +32,11 @@ dependencies {
     testCompile('org.springframework.boot:spring-boot-starter-test')
     testCompile('com.jayway.jsonpath:json-path')
 
+    //JPA
+    compile('org.springframework.boot:spring-boot-starter-data-jpa')
+    //HSQLDB
+    compile('org.hsqldb:hsqldb')
+
     //cloudant
     compile("org.springframework.boot:spring-boot-starter-jetty:1.4.0.RELEASE")
     compile("org.springframework.boot:spring-boot-starter-actuator:1.4.0.RELEASE")
