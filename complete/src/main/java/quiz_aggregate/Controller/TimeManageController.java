@@ -50,6 +50,25 @@ public class TimeManageController {
         return modelAndView;
     }
 
+    @RequestMapping(value = "/manage", method = RequestMethod.POST, params = "baseTime")
+    @Transactional
+    public ModelAndView baseTime(ModelAndView modelAndView) {
+        modelAndView.setViewName("timemanage");
+        modelAndView.addObject("title", "Manage Page");
+        modelAndView.addObject("msg", "this is sample content.");
+
+        TimeManageData timeManageData = timeManageDataService.getData();
+        if (timeManageData != null) {
+            modelAndView.addObject("timeManageData", timeManageData);
+        }
+
+        long baseTime = System.currentTimeMillis();
+
+        timeManageData.setBaseTime(baseTime);
+        timeManageDataService.saveTimeManageData(timeManageData);
+        return modelAndView;
+    }
+
     @RequestMapping(value = "/manage", method = RequestMethod.POST, params = "first")
     @Transactional
     public ModelAndView first(ModelAndView modelAndView) {

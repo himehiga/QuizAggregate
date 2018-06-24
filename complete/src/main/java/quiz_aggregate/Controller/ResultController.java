@@ -10,6 +10,7 @@ import quiz_aggregate.Model.Entity.UserData;
 import quiz_aggregate.Service.UserDataService;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 public class ResultController {
@@ -25,13 +26,24 @@ public class ResultController {
         //集計
         List<UserData> allUserData = userDataService.getAll();
 
-
         modelAndView.setViewName("result");
-        modelAndView.addObject("title", "Find Page");
-        modelAndView.addObject("msg", "this is sample content.");
+
+        List<UserData> setUsers =
+                allUserData.stream().filter((UserData userdata) -> {return userdata.getTotaltime() != 0;})
+                .sorted((userdata1, userdata2) -> userdata1.getTotaltime().compareTo(userdata2.getTotaltime()))
+                .limit(10)
+                .collect(Collectors.toList());
+
+        setUsers.forEach(user -> user.setRank(setUsers.indexOf(user) + 1));
+
+        List<UserData> sortedUsers =
+                setUsers.stream().filter((UserData userdata) -> {return userdata.getTotaltime() != 0;})
+                        .sorted((userdata1, userdata2) -> userdata2.getTotaltime().compareTo(userdata1.getTotaltime()))
+                        .collect(Collectors.toList());
+
+
+        modelAndView.addObject("sortedUsers" , sortedUsers);
 
         return modelAndView;
     }
-
-    private setTotalTime
 }

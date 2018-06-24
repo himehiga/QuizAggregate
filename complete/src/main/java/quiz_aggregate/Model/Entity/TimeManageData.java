@@ -32,7 +32,7 @@ public class TimeManageData {
     @Column int answearNumber;
 
     @Column
-    private long base_first_answeartime;
+    private Long baseTime;
 
     public void setId(long id) {
         this.id = id;
@@ -72,6 +72,14 @@ public class TimeManageData {
 
     public void setAnswerEnd(Boolean answerEnd) {
         isAnswerEnd = answerEnd;
+    }
+
+    public long getBaseTime() {
+        return baseTime;
+    }
+
+    public void setBaseTime(long baseTime) {
+        this.baseTime = baseTime;
     }
 
     public Boolean getNotAllowedOperation() {

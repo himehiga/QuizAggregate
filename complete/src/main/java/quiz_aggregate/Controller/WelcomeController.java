@@ -53,11 +53,35 @@ public class WelcomeController {
 
     @PostConstruct
     public void init() {
-        UserData userData = new UserData();
-        String uuid = UUID.randomUUID().toString();
-        userData.setName("kenjinak");
-        userData.setUuid(uuid);
-        userDataRepository.saveAndFlush(userData);
+        long answerTime = System.currentTimeMillis();
+
+//        UserData userData4 = new UserData();
+//        String uuid4 = UUID.randomUUID().toString();
+//        userData4.setName("mia");
+//        userData4.setUuid(uuid4);
+//        userData4.setTotaltime(answerTime + 10000);
+//        userDataRepository.saveAndFlush(userData4);
+//
+//        UserData userData = new UserData();
+//        String uuid = UUID.randomUUID().toString();
+//        userData.setName("kenjinak");
+//        userData.setUuid(uuid);
+//        userData.setTotaltime(answerTime);
+//        userDataRepository.saveAndFlush(userData);
+//
+//        UserData userData2 = new UserData();
+//        String uuid2 = UUID.randomUUID().toString();
+//        userData2.setName("nakamura");
+//        userData2.setUuid(uuid2);
+//        userData2.setTotaltime(answerTime + 100);
+//        userDataRepository.saveAndFlush(userData2);
+//
+//        UserData userData3 = new UserData();
+//        String uuid3 = UUID.randomUUID().toString();
+//        userData3.setName("john");
+//        userData3.setUuid(uuid3);
+//        userData3.setTotaltime(answerTime + 1000);
+//        userDataRepository.saveAndFlush(userData3);
     }
 
     //@ModelAttribute：エンティティクラスのインスタンスを自動的に用意する。
@@ -86,10 +110,11 @@ public class WelcomeController {
             HttpServletResponse response,
             ModelAndView modelAndView) {
         ModelAndView res = null;
-        if (!result.hasErrors()) {
+        if (!userData.getName().isEmpty()) {
 
             String uuid = UUID.randomUUID().toString();
             userData.setUuid(uuid);
+            userData.setTotaltime(0);
             //引数のエンティティを永続化
             userDataService.saveUserData(userData);
 
@@ -105,8 +130,8 @@ public class WelcomeController {
         }else {
             modelAndView.setViewName("welcome");
             modelAndView.addObject("msg", "Error is Occuerdやわ");
-            Iterable<UserData> datalist = userDataService.getAll();
-            modelAndView.addObject("datalist", datalist);
+//            Iterable<UserData> datalist = userDataService.getAll();
+//            modelAndView.addObject("datalist", datalist);
             res = modelAndView;
         }
         return res;

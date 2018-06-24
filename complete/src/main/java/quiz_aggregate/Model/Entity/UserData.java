@@ -25,7 +25,6 @@ public class UserData {
     private String uuid;
 
     @Column(length = 50, nullable = false)
-    @NotEmpty
     private String name;
 
     @Column(nullable = true)
@@ -37,9 +36,32 @@ public class UserData {
     @Column
     private LocalDateTime answerSecondTime;
 
+    @Column
+    private Long firstAnswerTime;
+
+    @Column
+    private Boolean isAnseredFirst = false;
+
+    @Column
+    private Long secondAnswerTime;
+
+    @Column
+    private Boolean isAnseredSecond = false;
+
+    @Column
+    private Boolean isAnseredThird = false;
+
+    //正答数
+    @Column
+    private int correctNum;
+
+    //順位
+    @Column
+    private int rank;
+
     @Column(nullable = true)
     @Min(0)
-    private long totaltime;
+    private Long totaltime;
 
     public String getUuid() {
         return uuid;
@@ -73,7 +95,7 @@ public class UserData {
         this.answer = answer;
     }
 
-    public long getTotaltime() {
+    public Long getTotaltime() {
         return totaltime;
     }
 
@@ -95,5 +117,61 @@ public class UserData {
 
     public void setAnswerSecondTime(LocalDateTime answerSecondTime) {
         this.answerSecondTime = answerSecondTime;
+    }
+
+    public Long getFirstAnswerTime() {
+        return firstAnswerTime;
+    }
+
+    public void setFirstAnswerTime(long firstAnswerTime) {
+        this.firstAnswerTime = firstAnswerTime;
+    }
+
+    public Long getSecondAnswerTime() {
+        return secondAnswerTime;
+    }
+
+    public void setSecondAnswerTime(long secondAnswerTime) {
+        this.secondAnswerTime = secondAnswerTime;
+    }
+
+    public int getCorrectNum() {
+        return correctNum;
+    }
+
+    public void setCorrectNum(int correctNum) {
+        this.correctNum = correctNum;
+    }
+
+    public void setRank(int rank) {
+        this.rank = rank;
+    }
+
+    public int getRank() {
+        return rank;
+    }
+
+    public Boolean getAnseredFirst() {
+        return isAnseredFirst;
+    }
+
+    public void setAnseredFirst(Boolean anseredFirst) {
+        isAnseredFirst = anseredFirst;
+    }
+
+    public Boolean getAnseredSecond() {
+        return isAnseredSecond;
+    }
+
+    public void setAnseredSecond(Boolean anseredSecond) {
+        isAnseredSecond = anseredSecond;
+    }
+
+    public Boolean getAnseredThird() {
+        return isAnseredThird;
+    }
+
+    public void setAnseredThird(Boolean anseredThird) {
+        isAnseredThird = anseredThird;
     }
 }

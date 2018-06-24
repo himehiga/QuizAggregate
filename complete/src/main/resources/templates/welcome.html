@@ -1,50 +1,97 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Top Page</title>
+    <link rel="stylesheet"
+          href="node_modules/material-components-web/dist/material-components-web.css">
     <meta http-equiv="Content-Type"
           content="text/html"; charset="UTF-8" />
-    <style>
-        h1 {  font-size: 18pt; font-weight: bold; color: gray; }
-        body {
-            font-size: 13pt; color: gray;  margin: 5px 25px}
-        pre {
-            border:solid 3px; color: black; background: darkgray;}
-        tr { margin: 5px;}
-        th{ padding: 5px; color: white; background: darkgray; }
-        td {padding: 5px; color: black; background: #f0f0f0; }
-        .err {  color: red; }
-    </style>
+
+    <!-- viewport meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" media="all" th:href="@{/main.css}"/>
+
 </head>
 
 <body>
-<span>余興をはじめるにあたりの説明をずらずらと</span>
-<span>WebPush使うのありかなー</span>
-    <h1 th:text="#{content.title}">Hello Page</h1>
-    <p th:text="${msg}"></p>
-    <table>
-        <form method="post" action="/" th:object="${formModel}">
-            <ul>
-                <li th:each="error: ${#fields.detailedErrors()}"
-                    class="err" th:text="${error.message}" />
-            </ul>
-        <tr><td><label >名前</label></td>
-        <td><input type="text" name="name" th:value="*{name}" />
-            <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}" th:errorclass="err">
+<!--<button class="foo-button mdc-button">Button</button>-->
+<!--<h2 class="mdc-typography&#45;&#45;display2">Hello, Material Components!</h2>-->
+<!--<div class="mdc-textfield" data-mdc-auto-init="MDCTextfield">-->
+    <!--<input type="text" class="mdc-textfield__input" id="demo-input">-->
+    <!--<label for="demo-input" class="mdc-textfield__label">Tell us how you feel!</label>-->
+<!--</div>-->
+<!--<span>余興をはじめるにあたりの説明をずらずらと</span>-->
+<!--<span>WebPush使うのありかなー</span>-->
+    <!--<h1 th:text="#{content.title}">Hello Page</h1>-->
+    <!--<p th:text="${msg}"></p>-->
+    <!--<table>-->
+        <!--<form method="post" action="/" th:object="${formModel}">-->
+            <!--<ul>-->
+                <!--<li th:each="error: ${#fields.detailedErrors()}"-->
+                    <!--class="err" th:text="${error.message}" />-->
+            <!--</ul>-->
+        <!--<tr><td><label >名前</label></td>-->
+        <!--<td><input type="text" name="name" th:value="*{name}" />-->
+            <!--<div th:if="${#fields.hasErrors('name')}" th:errors="*{name}" th:errorclass="err">-->
 
-            </div>
-        </td></tr>
-        <tr><td></td><td><input type="submit" /></td></tr>
-        </form>
-    </table>
-    <hr />
-    <table>
-        <tr><th>ID</th></tr><th>名前</th>
-        <tr th:each="obj : ${datalist}">
-            <td th:text="${obj.id}"></td>
-            <td th:text="${obj.name}"></td>
-        </tr>
-    </table>
+            <!--</div>-->
+        <!--</td></tr>-->
+        <!--<tr><td></td><td><input type="submit" /></td></tr>-->
+        <!--</form>-->
+    <!--</table>-->
+    <!--<hr />-->
+    <!--<table>-->
+        <!--<tr><th>ID</th></tr><th>名前</th>-->
+        <!--<tr th:each="obj : ${datalist}">-->
+            <!--<td th:text="${obj.id}"></td>-->
+            <!--<td th:text="${obj.name}"></td>-->
+        <!--</tr>-->
+    <!--</table>-->
+
+
+
+<!--<div class="mdc-form-field">-->
+    <!--<div class="mdc-text-field">-->
+    <!--<form method="post" action="/" th:object="${formModel}">-->
+        <!--<legend>名前を入力してください</legend>-->
+            <!--<input type="text" id="my-text-field" class="mdc-text-field__input" name="name" th:value="*{name}" />-->
+                <!--<div th:if="${#fields.hasErrors('name')}" th:errors="*{name}" th:errorclass="err">-->
+                <!--</div>-->
+            <!--<input type="submit" class="mdc-button" value="OK"/>-->
+    <!--</form>-->
+    <!--</div>-->
+<!--</div>-->
+
+<div class="jumbotron" style="background:url(welcome_img.jpg); background-size:cover;">
+    <div class="container">
+        <h1 id="welcome">Happy Wedding</h1>
+    </div>
+</div>
+<div class="container">
+    <form method="post" action="/" th:object="${formModel}">
+        <div class="form-group">
+            <label>名前を入力してください</label>
+            <input type="text" name="name" class="form-control" th:value="*{name}" />
+        </div>
+        <div id="go-button">
+        <button type="submit" class="btn btn-primary">登録</button>
+        </div>
+    </form>
+</div>
+
+
+
+<script src="node_modules/material-components-web/dist/material-components-web.js"></script>
+<script>mdc.autoInit()</script>
+
+<!-- jQuery、Popper.js、Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
 </body>
 </html>

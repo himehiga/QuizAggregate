@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+#welcome {
+    color: #FFFFF0;
+    font-size: 50px;
+    font-weight: bold;
+    text-shadow: 2px 2px 1px #F0E68C,
+    -2px 2px 1px #F0E68C,
+    2px -2px 1px #F0E68C,
+    -2px -2px 1px #F0E68C;
+    opacity: 0.95;
+}
+
+#up-margin {
+    padding-top: 15px;
+}
+
+#go-button {
+    text-align : center ;
+}
+
+#result-id {
+    padding-top: 30px;
+}
